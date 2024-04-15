@@ -1,0 +1,111 @@
+form {
+  background-image: url("contact\ form\ picture.avif");
+  background-repeat: no-repeat;
+  width: fit-content;
+  border: 2px dashed black; /* Add dashed border */
+  padding: 20px; /* Add padding for better visual */
+}
+
+/* Apply "after" effect to all button names and make them capital */
+.submit-button::after {
+	content: " ➔";
+	text-transform: uppercase;
+	margin-left: 5px;
+}
+
+main {
+  line-height: 10px;
+}
+
+body {
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+label,
+input[type=text] {
+  margin-top: 3px;
+}
+
+label {
+  font-size: 18px;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  width: 40%;
+  color: rgb(9, 8, 8);
+}
+
+.column {
+  margin: 10px;
+}
+
+.row {
+  width: 40%;
+  display: inline-block;
+}
+header{border: 5px dashed black;}
+
+input[type=submit] {
+  background-color: #047caa;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 14px;
+  box-shadow: 10px 10px 20px #515151;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@keyframes wipe {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.wipe-element {
+  width: 95%;
+  height: 95%;
+  animation: wipe 2s forwards;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom-element {
+  animation: zoom 2s;
+  animation-delay: 1s;
+}
+
+fieldset {
+  border: none; /* Remove border around fieldset */
+}
+
+footer {
+  border: 2px solid black;
+  width: 67%;
+  font-size: 25px;
+  background-color: rgba(235, 186, 193, 0.578);
+}
+
+legend {
+  font-size: 25px; /* Increase font size for legend */
+}

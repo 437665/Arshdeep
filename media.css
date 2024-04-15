@@ -1,0 +1,23 @@
+*{background-color: rgba(95, 158, 160, 0.095);}
+
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  .close-btn{background-color: red;}
+  .image-container {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .image-container img {
+    float: left;
+  width: 30.33%;
+  padding: 5px;
+  }
+  .image-container row-1{height:10%}
+  

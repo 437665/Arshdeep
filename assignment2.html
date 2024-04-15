@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>tr, td {
+        border: 3px solid black;  
+      }
+      table,tr,td{height: 300%,;width:100%}table{
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    table tr td{
+        list-style: none;
+        margin-left: 12px;
+        margin-top: 7px;
+        font-size: 14px;   
+    }
+    table tr td a{
+        text-decoration: none;
+        color: #9fb14d;
+        font-family: Arial;
+        font-weight: bold;
+        transition: 0.4s ease-in-out;
+    }
+    
+    table tr td a:hover{
+        color: #f8f7f7;
+    }</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assignment2.css">
+
+<script  src="https://smtpjs.com/v3/smtp.js"> </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<title>Contact Us</title>
+</head>
+ <div class="menu">
+        <table >      <!--Use of table tag-->
+            <tr >   <!--Use of tr and td tag-->
+            <td style="font-size: 25px;"><a href="Assignment1.html">HOME</a></td>  <!--by clicking on home we will on the same location on home page of website-->
+            <td style="font-size:25px;"><a href="About.html">ABOUT</a></td>   <!--link the about file wih home page by clicking on about new website will open-->
+            <td style="font-size: 25px;"><a href="media.html">MEDIA</a></td>  <!--link the media file wih home page by clicking on media new website will open which contain media sources-->
+            <td style="font-size: 25px;"><a href="assignment2.html">CONTACT</a></td>  <!--link the contact file wih home page by clicking on contact new website will open-->
+            <td style="font-size: 25px;"><a href="honesty.html">HONESTLY</a></td>  <!--link the honestly file wih home page by clicking on honestly new website will open-->
+    
+        </tr>    <!--Use of <a> tag to add the link of files-->
+        </table>
+    </div>
+<body>
+   
+<header class="zoom-element" style="border: 2px dashed black; width: 67%; font-size: 30px; background-color: rgba(135, 206, 250, 0.544); margin-top: 3px;">
+ CONTACT US FORM :
+ <div style="font-size: 15px; font-style: italic;">This form is here only to get your feedback. Providing proper details help us to contact you back easily.</div>
+</header><br>
+<main class="wipe-element">
+  <form  id="contactForm" action="https://formspree.io/f/xleyqaok"
+  method="POST" >
+      <fieldset ><legend style="font-size: 25px;">Your Information</legend>
+      <div class="column">
+      <label class="row" for="firstName">First Name:</label>
+      <input class="row" type="text" id="firstName" name="firstName" placeholder="Enter your first name"><br></div>
+      <span style="color: red; ">*</span><span style="font-size: 12px;">atleast 5 characters</span><br>
+      <div class="column">
+      <label class="row" for="lastName">Last Name:</label>
+      <input class="row" type="text" id="lastName" name="lastName" placeholder="Enter your last name"><br></div>
+      <span style="color: red; ">*</span><span style="font-size: 12px;">atleast 5 characters</span><br>
+      <div class="column"><label class="row" for="email">Email:</label>
+      <input class="row" type="email" id="email" name="email" placeholder="Enter email address"><br> </div>
+      <div class="column"> <label class="row" for="date">Date:</label>
+      <input class="row" type="date" id="date" name="date" ><br></div>
+      <div class="column"><label class="row" for="phone">Phone:</label>
+      <input class="row" type="tel" id="phone" name="phone"  placeholder="10 digits contact number"><br></div>
+      <div class="column">
+      <label class="row" for="message">Message:</label>
+      <textarea class="row" id="message" name="message" rows="4" cols="50" placeholder="Give your review about using this website"></textarea><br>
+      <span style="color: red; ">*</span><span style="font-size: 12px;">atleast 50 characters</span><br></div>
+    <div class="column">  
+       
+      <button style="background-color: red;" type="submit" class="row" id="Submit" onclick="validateForm()">Submit</button></div>
+    </form>
+</fieldset>
+  </main>
+  <footer  style="border: 2px dashed black; width: 67%; font-size: 25px;background-color:rgba(235, 186, 193, 0.578);">
+    Thanks to contact us!
+  </footer>
+
+  <script>
+    function validateForm(event) {
+        event.preventDefault(); 
+    
+        let firstName = document.getElementById("firstName").value;
+        let lastName = document.getElementById("lastName").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let message = document.getElementById("message").value;
+        let date = document.getElementById("date").value;
+    
+        if (!validateLength(firstName, 5, "First name")) return false;
+        if (!validateLength(lastName, 5, "Last name")) return false;
+        if (!validateEmail(email)) return false;
+        if (!validatePhone(phone)) return false;
+        if (!validateLength(message, 50, "Message")) return false;
+    
+        sendEmail(); 
+        return true; 
+    }
+    
+    function validateLength(value, minLength, fieldName) {
+        if (value.length < minLength) {
+            alert(fieldName + " should be at least " + minLength + " characters.");
+            return false;
+        }
+        return true;
+    }
+    
+    function validateEmail(email) {
+        if (!email.includes("@")) {
+            alert("Email should contain the domain name (with '@').");
+            return false;
+        }
+        return true;
+    }
+    
+    function validatePhone(phone) {
+        if (!phone.match(/^\d{3}-\d{3}-\d{4}$/)) {
+            alert("Phone must contain digits in the format xxx-xxx-xxxx.");
+            return false;
+        }
+        return true;
+    }
+    
+    function sendEmail() {
+  Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "nehalsandhu00@gmail.com",
+      Password: "821C1FB8A18BDC71FF0F7F23D56379A6898C",
+      To: 'nehalsandhu00@gmail.com',
+      From: "nehalsandhu00@gmail.com",
+      Subject: "New Enquiry",
+      Body: "First Name: " + document.getElementById("firstName").value + "<br> Last Name: " + document.getElementById("lastName").value + "<br/> Email ID: " + document.getElementById("email").value + "<br/> Date: " + document.getElementById("date").value + "<br/> Phone: " + document.getElementById("phone").value + "<br/> Message: " + document.getElementById("message").value
+  }).then(
+      message => {
+          if (message == "OK") {
+              swal("Succesful", "Your data has been successfully submitted!", "success");
+          }
+      }
+  );
+}
+    document.getElementById('contactForm').addEventListener('submit', validateForm);
+    </script>
+    
+
+ 
+</body>
+</html>
